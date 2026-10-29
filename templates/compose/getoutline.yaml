@@ -88,7 +88,8 @@ services:
       retries: 3
 
   postgres:
-    image: postgres:12-alpine
+    # Existing PostgreSQL 12 data requires a dump and restore before upgrading.
+    image: postgres:16-alpine
     volumes:
       - database-data:/var/lib/postgresql/data
     environment:
